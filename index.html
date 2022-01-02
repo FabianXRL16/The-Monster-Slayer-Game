@@ -35,11 +35,11 @@
       <h3 v-else>It's a draw!</h3>
       <button @click="startGame">Start New game</button>
     </section>
-    <section id="controls">
+    <section id="controls" v-else>
       <button :disabled="gameOver" @click="attackMonster">ATTACK</button>
       <button :disabled="mayUseSpecialAttack || gameOver" @click="specialAttackMonster">SPECIAL ATTACK</button>
       <button :disabled="gameOver" @click="healPlayer">HEAL</button>
-      <button>SURRENDER</button>
+      <button @click="surrender">SURRENDER</button>
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>
