@@ -36,14 +36,18 @@
       <button @click="startGame">Start New game</button>
     </section>
     <section id="controls" v-else>
-      <button :disabled="gameOver" @click="attackMonster">ATTACK</button>
-      <button :disabled="mayUseSpecialAttack || gameOver" @click="specialAttackMonster">SPECIAL ATTACK</button>
-      <button :disabled="gameOver" @click="healPlayer">HEAL</button>
+      <button @click="attackMonster">ATTACK</button>
+      <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
+      <button @click="healPlayer">HEAL</button>
       <button @click="surrender">SURRENDER</button>
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>
-      <ul></ul>
+      <ul>
+        <li v-for="item in listAttack" :key="item">
+          {{item.actionBy}} - {{item.actionType}} - {{item.actionValue}}
+        </li>
+      </ul>
     </section>
   </div>
 </body>
